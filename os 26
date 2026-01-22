@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <fcntl.h>
+#include <unistd.h>
+
+int main() {
+    int fd;
+    char buf[50];
+
+    // Create and Write
+    fd = open("file.txt", O_CREAT | O_WRONLY, 0644);
+    write(fd, "File Management Example", 23);
+    close(fd);
+
+    // Read
+    fd = open("file.txt", O_RDONLY);
+    read(fd, buf, 23);
+    buf[23] = '\0';
+    printf("File Content: %s\n", buf);
+    close(fd);
+
+    // Rename
+    rename("file.txt", "newfile.txt");
+    printf("File renamed\n");
+
+    // Delete
+    unlink("newfile.txt");
+    printf("File deleted\n");
+
+    return 0;
+}
