@@ -1,0 +1,35 @@
+#include <stdio.h>
+
+int main() {
+    int nb, nf, b[10], f[10], allocated[10] = {0};
+
+    printf("Enter number of blocks: ");
+    scanf("%d", &nb);
+
+    printf("Enter block sizes:\n");
+    for(int i=0;i<nb;i++)
+        scanf("%d", &b[i]);
+
+    printf("Enter number of files: ");
+    scanf("%d", &nf);
+
+    printf("Enter file sizes:\n");
+    for(int i=0;i<nf;i++)
+        scanf("%d", &f[i]);
+
+    for(int i=0;i<nf;i++) {
+        int placed = 0;
+        for(int j=0;j<nb;j++) {
+            if(!allocated[j] && b[j] >= f[i]) {
+                printf("File %d allocated to Block %d\n", i+1, j+1);
+                allocated[j] = 1;
+                placed = 1;
+                break;
+            }
+        }
+        if(!placed)
+            printf("File %d not allocated\n", i+1);
+    }
+
+    return 0;
+}
