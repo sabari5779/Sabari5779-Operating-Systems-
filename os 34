@@ -1,0 +1,22 @@
+#include <stdio.h>
+
+int main() {
+    int n, record[50];
+
+    printf("Enter number of records: ");
+    scanf("%d", &n);
+
+    printf("Enter record numbers:\n");
+    for(int i = 0; i < n; i++) {
+        scanf("%d", &record[i]);
+    }
+
+    printf("\nSequential File Allocation\n");
+    printf("Accessing records:\n");
+
+    for(int i = 0; i < n; i++) {
+        printf("Record %d accessed\n", record[i]);
+    }
+
+    return 0;
+}
