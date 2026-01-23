@@ -1,6 +1,7 @@
 # Sabari5779-Operating-Systems-
 Operating Systems 
 ## Output Screenshot
+![Program Output](Screenshot.png)
 
-![Program Output](your_screenshot_name.png)
+
 
