@@ -1,0 +1,31 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int n, head, i;
+    int total_seek = 0;
+
+    printf("Enter number of disk requests: ");
+    scanf("%d", &n);
+
+    int req[n];
+
+    printf("Enter disk request sequence:\n");
+    for (i = 0; i < n; i++) {
+        scanf("%d", &req[i]);
+    }
+
+    printf("Enter initial head position: ");
+    scanf("%d", &head);
+
+    printf("\nSeek Sequence:\n");
+    for (i = 0; i < n; i++) {
+        printf("%d -> %d\n", head, req[i]);
+        total_seek += abs(req[i] - head);
+        head = req[i];
+    }
+
+    printf("\nTotal Seek Time = %d\n", total_seek);
+
+    return 0;
+}
